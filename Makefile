@@ -2,8 +2,8 @@
 
 bin:
 	mkdir bin
-bin/golangci-lint: bin
-	GOBIN=$(PWD)/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.14.0
+bin/golangci-lint: .golangci-lint-version | bin
+	GOBIN=$(PWD)/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@$$(cat .golangci-lint-version)
 
 templ:
 	go tool templ generate

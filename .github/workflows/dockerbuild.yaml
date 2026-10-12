@@ -36,10 +36,13 @@ jobs:
       - name: go vet
         run: go vet ./...
 
+      - name: Read golangci-lint version
+        run: echo "GOLANGCI_LINT_VERSION=$(cat .golangci-lint-version)" >> "$GITHUB_ENV"
+
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v9
         with:
-          version: v2.11.4
+          version: ${{ env.GOLANGCI_LINT_VERSION }}
 
       - name: Tests
         run: make test
