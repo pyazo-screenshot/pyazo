@@ -3,7 +3,7 @@
 bin:
 	mkdir bin
 bin/golangci-lint: bin
-	GOBIN=$(PWD)/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.12.2
+	GOBIN=$(PWD)/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.14.0
 
 templ:
 	go tool templ generate
